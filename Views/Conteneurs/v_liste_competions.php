@@ -16,7 +16,7 @@
 <?php
 
  foreach ($result as $row) { ?>
- <li> <a href="<?=base_url('Cconteneur/detail/'). '/' . $row['ID']; ?>">
+ <li> <a href="<?=base_url('Ccompetition/detail/'). '/' . $row['ID']; ?>">
  <?= $row['Nom'] ;?>
 </a>   <?=  $row['Date'];?>
  </li>

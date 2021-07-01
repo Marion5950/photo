@@ -4,35 +4,17 @@ use CodeIgniter\Model;
 
 class Mtournee extends Model
 {
- protected $table = 'tourneestandard';
- protected $primaryKey = 'Id';
+ protected $table = 'photo';
+ protected $primaryKey = 'ID';
  protected $returnType = 'array';
 
- public function getAll()
+ public function getAllByIdCompet($prmIdCompetition)
  {
- $requete = $this->select('*');
- //return $requete->findAll();
- return $requete->findAll(); 
- }
-public function  getAllWithPager()
-{
-
-}
-
-public function getDetail($prmId)
- {
- $requete = $this->select('*')
- ->where(['Id' => $prmId]);
- return $requete->findAll();
- }
-
-
- public function getAllByIdTournee($prmIdTournee)
- {
-     return $this -> select ('Id, AddrEmplacement')
-     -> where (['TourneeStandardId' => $prmIdTournee])
-     ->findAll();
- }
-
+     $requete = $this->select('photo.ID, Titre,Classement,concurrent.Nom,Prenom,Pays')
+     ->join('concurrent','photo.concurrentID=concurrent.ID', 'left')
+     ->where(['photo.competitionID'=>$prmIdCompetition])
+     ->orderby('Classement','asc');
+     return $requete->findAll();
+ }  
 
 }

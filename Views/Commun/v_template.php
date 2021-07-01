@@ -38,7 +38,7 @@
             <nav>
                 <ul>
                     <li><a href="<?php echo base_url ()?>">Accueil</a></li>
-                    <li><a href="<?php echo base_url ("Cconteneur/index")?>">Les compétitions</a></li>
+                    <li><a href="<?php echo base_url ("Ccompetition/index")?>">Les compétitions</a></li>
                 </ul>
             </nav>
             <section>
